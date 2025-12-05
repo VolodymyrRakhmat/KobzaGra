@@ -1,0 +1,53 @@
+Starting project at C:\Users\Вова\KobzaGra
+Starting Metro Bundler
+Waiting on http://localhost:8081
+Logs for your project will appear below.
+Web .\index.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundling failed 158ms index.js (150 modules)
+Unable to resolve "@react-navigation/native" from "src\navigation\AppNavigator.js"
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useEffect[33m,[39m useState } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mNavigationContainer[39m } [36mfrom[39m [32m'@react-navigation/native'[39m[33m;[39m
+ [90m   |[39m                                      [31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { createNativeStackNavigator } [36mfrom[39m [32m'@react-navigation/native-stack'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLoginScreen[39m [36mfrom[39m [32m'../screens/LoginScreen'[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mGameScreen[39m [36mfrom[39m [32m'../screens/GameScreen'[39m[33m;[39m[0m
+
+Import stack:
+
+ src\navigation\AppNavigator.js
+ | import "@react-navigation/native"
+
+ App.js
+ | import "./src/navigation/AppNavigator"
+
+ index.js
+ | import "./App"
+
+ 
+ | import "./index"
+
+Web Bundling failed 56ms index.js (1 module)
+Unable to resolve "@react-navigation/native" from "src\navigation\AppNavigator.js"
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useEffect[33m,[39m useState } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { [33mNavigationContainer[39m } [36mfrom[39m [32m'@react-navigation/native'[39m[33m;[39m
+ [90m   |[39m                                      [31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { createNativeStackNavigator } [36mfrom[39m [32m'@react-navigation/native-stack'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLoginScreen[39m [36mfrom[39m [32m'../screens/LoginScreen'[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m [33mGameScreen[39m [36mfrom[39m [32m'../screens/GameScreen'[39m[33m;[39m[0m
+
+Import stack:
+
+ src\navigation\AppNavigator.js
+ | import "@react-navigation/native"
+
+ App.js
+ | import "./src/navigation/AppNavigator"
+
+ index.js
+ | import "./App"
+
+ 
+ | import "./index"
+
+Terminate batch job (Y/N)? 
+^CThe syntax of the command is incorrect.
