@@ -11,7 +11,6 @@ import StatsScreen from "../screens/StatsScreen";
 import AnagramGameScreen from "../screens/AnagramGameScreen";
 import { auth, onAuthStateChanged } from "../services/auth";
 
-// ✅ ІМПОРТ: Імпортуємо SettingsProvider з GameScreen
 import { SettingsProvider } from "../screens/GameScreen"; 
 
 const Stack = createNativeStackNavigator();
@@ -38,7 +37,6 @@ const AppNavigator = () => {
   }
 
   return (
-    // ✅ ОБГОРТКА: Навігація обгорнута SettingsProvider
     <SettingsProvider> 
       <NavigationContainer
         documentTitle={{
@@ -52,7 +50,6 @@ const AppNavigator = () => {
       >
         <Stack.Navigator>
           {user ? (
-            // ✅ ГРУПА ЕКРАНІВ ДЛЯ АВТОРИЗОВАНИХ
             <Stack.Group>
               <Stack.Screen 
                   name="Game" 
@@ -61,7 +58,6 @@ const AppNavigator = () => {
               />
               <Stack.Screen name="Stats" component={StatsScreen} />
               
-              {/* ✅ РЕЄСТРАЦІЯ ANAGRAMGAMSCREEN (виправлення помилки навігації) */}
               <Stack.Screen 
                   name="AnagramGame" 
                   component={AnagramGameScreen} 
@@ -69,7 +65,6 @@ const AppNavigator = () => {
               />
             </Stack.Group>
           ) : (
-            // Екран входу для неавторизованих
             <Stack.Screen
               name="Login"
               component={LoginScreen}

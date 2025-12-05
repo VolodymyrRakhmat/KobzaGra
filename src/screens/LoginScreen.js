@@ -9,9 +9,8 @@ import {
 } from "react-native";
 import { register, login, sendPasswordReset } from "../services/auth";
 import Toast from "react-native-toast-message";
-import Svg, { Path } from "react-native-svg"; // ТІЛЬКИ SVG
+import Svg, { Path } from "react-native-svg"; 
 
-// === ВАЛІДАЦІЯ ПАРОЛЯ ===
 const validatePassword = (pwd) => {
   if (pwd.length < 6) return "Пароль ≥ 6 символів";
   if (!/\d/.test(pwd)) return "Додайте хоча б 1 цифру";
@@ -19,7 +18,6 @@ const validatePassword = (pwd) => {
   return null;
 };
 
-// === SVG ОКО (всередині файлу) ===
 const EyeIcon = ({ visible, onPress }) => (
   <TouchableOpacity onPress={onPress} style={s.eyeIcon}>
     <Svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -45,7 +43,6 @@ const EyeIcon = ({ visible, onPress }) => (
   </TouchableOpacity>
 );
 
-// === ПОЛЕ ПАРОЛЯ ===
 const PasswordField = ({ value, onChange, visible, toggle, placeholder }) => (
   <View style={s.field}>
     <TextInput

@@ -25,37 +25,27 @@ import {
 } from "../services/auth";
 import { createStyles, getThemedStyles, styles as staticStyles } from "./GameScreenStyles";
 
-// ✅ КОНСТАНТА
 const ANAGRAM_REWARD = 2; 
 
-// ----------------------------------------------------------------------
 const ENCRYPTION_OFFSET = 5;
 
-// Функція обфускації: Зміщення символів + Реверс
 const obfuscateWord = (word) => {
-  // 1. Реверс
   let reversed = word.split("").reverse().join("");
 
-  // 2. Зміщення (шифр Цезаря)
   return reversed.split("").map(char => {
-    // Просте зміщення на ENCRYPTION_OFFSET
     return String.fromCharCode(char.charCodeAt(0) + ENCRYPTION_OFFSET);
   }).join("");
 };
 
-// Функція деобфускації: Зворотне зміщення + Зворотний реверс
 const deobfuscateWord = (obfuscatedWord) => {
-  // 1. Зворотне зміщення
   let shifted = obfuscatedWord.split("").map(char => {
     return String.fromCharCode(char.charCodeAt(0) - ENCRYPTION_OFFSET);
   }).join("");
 
-  // 2. Зворотний реверс
   return shifted.split("").reverse().join("");
 };
-// ----------------------------------------------------------------------
 
-// Функція для перемішування букв слова
+
 const shuffleWord = (word) => {
   const arr = word.split("");
   for (let i = arr.length - 1; i > 0; i--) {
@@ -64,10 +54,7 @@ const shuffleWord = (word) => {
   }
   return arr;
 };
-
-// Функція вибору слова (5 або 6 букв)
 const selectAnagramWord = () => {
-  // Об'єднуємо всі списки, фільтруємо слова довжиною 5 або 6
   const allWords = [...words_easy, ...words_medium, ...words_hard]
     .map(item => typeof item === 'object' ? item.word : item)
     .filter(word => word.length === 5 || word.length === 6)
@@ -279,7 +266,6 @@ const AnagramGameScreen = ({ navigation }) => {
 
   }, [gameOver, currentGuess.length]);
 
-  // ✅ ОНОВЛЕНО: Логіка перевірки слова з затримкою при програші
   const handleCheckPress = useCallback(() => {
     if (gameOver) return;
     if (currentGuess.length !== deobfuscateWord(secretWord).length) {
@@ -293,7 +279,6 @@ const AnagramGameScreen = ({ navigation }) => {
     const normalizedSecret = actualSecretWord.toLocaleLowerCase("uk").trim();
 
     if (guessedWord === normalizedSecret) {
-      // ПЕРЕМОГА
       setGameOver(true);
       updateStats(ANAGRAM_REWARD, true); 
       setMessage(`🎉 ВІТАЮ! Слово "${actualSecretWord.toUpperCase()}" вгадано! (+${ANAGRAM_REWARD} монет)`);
@@ -301,15 +286,12 @@ const AnagramGameScreen = ({ navigation }) => {
       runVictoryAnimation(); 
 
     } else {
-      // ПРОГРАШ
-      setGameOver(true); // Блокуємо введення
+      setGameOver(true);
       setMessageType("error");
       updateStats(0, false); 
       
-      // Показуємо слово та повідомлення про запуск нової гри
       setMessage(`❌ НЕПРАВИЛЬНО! Слово було: "${actualSecretWord.toUpperCase()}". Нова гра розпочнеться через 3 секунди.`);
       
-      // Запускаємо нову гру з затримкою
       setTimeout(() => {
           initializeGame();
       }, 3000); 

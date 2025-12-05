@@ -18,7 +18,6 @@ import {
   increment,
 } from "firebase/firestore";
 
-// === КОНФІГУРАЦІЯ FIREBASE ===
 const firebaseConfig = {
   apiKey: "AIzaSyAjPNUkCM8GrXn081Wbt9T2rLUPcJy2vsY",
   authDomain: "kobzagra-66ba6.firebaseapp.com",
@@ -29,22 +28,17 @@ const firebaseConfig = {
   measurementId: "G-PVMPLSD7MY",
 };
 
-// === ІНІЦІАЛІЗАЦІЯ ===
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// === РЕЄСТРАЦІЯ (ВИПРАВЛЕНА) ===
 export const register = async (email, password) => {
   try {
-    // 1. Створюємо користувача в Auth
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // 2. Оновлюємо токен
     await user.getIdToken(true);
 
-    // 3. Чекаємо, поки Auth стан синхронізується з Firestore Rules
     await new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
         unsubscribe();
@@ -60,7 +54,6 @@ export const register = async (email, password) => {
       });
     });
 
-    // 4. Тепер створюємо документ у Firestore
     const playerRef = doc(db, "players", user.uid);
     await setDoc(playerRef, {
       email: user.email,
@@ -78,7 +71,6 @@ export const register = async (email, password) => {
   }
 };
 
-// === ВХІД ===
 export const login = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -89,7 +81,6 @@ export const login = async (email, password) => {
   }
 };
 
-// === СКИДАННЯ ПАРОЛЯ ===
 export const sendPasswordReset = async (email) => {
   if (!email?.trim()) {
     throw new Error("Email is required");
@@ -106,12 +97,10 @@ export const sendPasswordReset = async (email) => {
   }
 };
 
-// === ВИХІД ===
 export const logout = async () => {
   return await signOut(auth);
 };
 
-// === ЕКСПОРТ ===
 export {
   app,
   auth,

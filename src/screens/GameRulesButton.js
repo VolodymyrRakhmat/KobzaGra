@@ -115,15 +115,15 @@ const GameRulesButton = () => {
 const styles = StyleSheet.create({
     button: {
         backgroundColor: '#0ea5e9',
-        paddingVertical: 6,        // було 8
-        paddingHorizontal: 12,     // було 15
-        borderRadius: 8,           // було 10
-        marginVertical: 5,         // було 10 → компактніше
+        paddingVertical: 6,        
+        paddingHorizontal: 12,    
+        borderRadius: 8,          
+        marginVertical: 5,         
     },
     buttonText: {
         color: 'white',
         fontWeight: '600',
-        fontSize: 15,              // трохи зменшив
+        fontSize: 15,              
     },
     centeredView: {
         flex: 1,
@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
     modalView: {
         margin: 20,
         backgroundColor: 'white',
-        borderRadius: 16,          // трохи менше
-        padding: 20,               // було 35 → компактніше
+        borderRadius: 16,          
+        padding: 20,               
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
@@ -145,29 +145,29 @@ const styles = StyleSheet.create({
         width: '90%',
     },
     modalTitle: {
-        marginBottom: 10,          // було 15
+        marginBottom: 10,         
         textAlign: 'center',
-        fontSize: 22,              // трохи менше
+        fontSize: 22,             
         fontWeight: 'bold',
         color: '#0ea5e9',
     },
     modalSubtitle: {
-        marginTop: 8,              // було 10
-        marginBottom: 4,           // було 5
+        marginTop: 8,              
+        marginBottom: 4,           
         fontSize: 17,
         fontWeight: '600',
         color: '#333',
     },
     modalText: {
-        marginBottom: 3,           // було 5 → дуже компактно
+        marginBottom: 3,           
         textAlign: 'left',
-        fontSize: 15,              // трохи менше
-        lineHeight: 20,            // було 22
+        fontSize: 15,              
+        lineHeight: 20,          
         color: '#475569',
     },
     buttonClose: {
         backgroundColor: '#f43f5e',
-        marginTop: 12,             // було 20 → ближче до тексту
+        marginTop: 12,          
     }
 });
 

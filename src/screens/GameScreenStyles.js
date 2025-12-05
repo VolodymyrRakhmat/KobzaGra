@@ -77,7 +77,7 @@ export const createStyles = (width, isDesktop, isDarkMode) => {
       borderWidth: 2,
     },
     key: {
-      width: keyWidth, // Забезпечення мінімальної ширини
+      width: keyWidth, 
       height: keyHeight,
       margin: keyMargin,
       borderRadius: 8,
@@ -225,7 +225,6 @@ export const staticStyles = StyleSheet.create({
     borderRadius: 8,
   },
   
-  // ✅ ДОДАНО: Стилі для прихованого TextInput для виклику рідної клавіатури
   hiddenTextInput: {
     position: 'absolute', 
     top: -9999, 
@@ -243,7 +242,6 @@ export const staticStyles = StyleSheet.create({
     marginBottom: 6,
   },
   
-  // ✅ ОНОВЛЕНО: Стилі для кнопки "Скласти Слово" (зменшено розмір)
   anagramHeaderButton: {
     backgroundColor: '#f59e0b', 
     paddingVertical: 6, 
@@ -293,7 +291,6 @@ export const staticStyles = StyleSheet.create({
 
   tileText: { fontWeight: "800", fontSize: 20 },
   tileGreen: { backgroundColor: "#16a34a", borderColor: "#16a34a" },
-  // ✅ ОНОВЛЕНО: Світліший жовтий колір
   tileYellow: { backgroundColor: "#DDCF43", borderColor: "#DDCF43" }, 
   message: {
     marginTop: 6,
@@ -365,11 +362,9 @@ export const staticStyles = StyleSheet.create({
     width: "100%",
     marginVertical: 10,
     paddingVertical: 5,
-    // ✅ ВИПРАВЛЕНО: Тут лише встановлюємо товщину, а колір беремо з тематичних стилів
     borderBottomWidth: 1, 
   },
   
-  // ✅ НОВЕ: Стиль для кнопки "Вийти" у модальному вікні
   logoutSettingButton: {
     marginTop: 15,
     marginBottom: 5,
